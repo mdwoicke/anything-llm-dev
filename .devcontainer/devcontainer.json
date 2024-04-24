@@ -1,0 +1,36 @@
+{
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+	"forwardPorts": [3000, 3001, 8300],
+	"postCreateCommand": "yarn install",
+	"customizations": {
+	  "vscode": {
+		"extensions": [
+			"ms-vscode.js-debug-nightly",
+			"msjsdiag.vscode-react-native",
+			"googlecloudtools.cloudcode"
+		],
+		"settings": {
+		  "debug.javascript.usePreview": true
+		},
+		"launch": {
+		  "configurations": [
+			{
+			  "name": "Debug React App",
+			  "type": "pwa-chrome",
+			  "request": "launch",
+			  "url": "http://localhost:3000",
+			  "webRoot": "${workspaceFolder}/src",
+			  "sourceMaps": true,
+			  "breakpoints": {
+				"exception": {
+				  "uncaught": "on",
+				  "caught": "off"
+				}
+			  }
+			}
+		  ]
+		}
+	  }
+	}
+  }
